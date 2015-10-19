@@ -1,0 +1,30 @@
+{
+	"name": "get-audio-duration",
+	"description": "Get the duration of a video file",
+	"version": "0.0.1",
+	"author": "Lluís Ulzurrun de Asanza Sàez <me@llu.is> (http://llu.is)",
+	"license": "MIT",
+	"repository": "caffco/get-video-duration",
+	"dependencies": {
+		"mz": "^1.2.1"
+	},
+	"devDependencies": {
+		"bluebird": "^2.9.6",
+		"istanbul": "0",
+		"mocha": "2"
+	},
+	"scripts": {
+		"test": "mocha",
+		"test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot",
+		"test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter dot"
+	},
+	"keywords": [
+		"audio",
+		"duration",
+		"ffmpeg",
+		"ffprobe"
+	],
+	"files": [
+		"index.js"
+	]
+}
