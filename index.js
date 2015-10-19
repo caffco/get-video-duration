@@ -9,10 +9,8 @@ module.exports = function ( filename ) {
 		'-show_streams',
 		filename
 	] ).then( function ( out ) {
-		console.log( out );
 		var stdout = out[ 0 ].toString( 'utf8' );
 		var duration = /duration=\"(\d*\.\d*)\"/.exec( stdout );
-		console.log( duration );
 		assert( duration, 'No duration found!' );
 		return parseFloat( duration[ 1 ] );
 	} );

@@ -1,5 +1,5 @@
 {
-	"name": "get-audio-duration",
+	"name": "get-video-duration",
 	"description": "Get the duration of a video file",
 	"version": "0.0.1",
 	"author": "Lluís Ulzurrun de Asanza Sàez <me@llu.is> (http://llu.is)",
