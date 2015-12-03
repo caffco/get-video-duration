@@ -19,7 +19,7 @@
 		"test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter dot"
 	},
 	"keywords": [
-		"audio",
+		"video",
 		"duration",
 		"ffmpeg",
 		"ffprobe"
