@@ -1,12 +1,12 @@
 {
 	"name": "get-video-duration",
 	"description": "Get the duration of a video file",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"author": "Lluís Ulzurrun de Asanza Sàez <me@llu.is> (http://llu.is)",
 	"license": "MIT",
 	"repository": "caffco/get-video-duration",
 	"dependencies": {
-		"mz": "^1.2.1"
+		"mz": "~2.4.0"
 	},
 	"devDependencies": {
 		"bluebird": "^2.9.6",
