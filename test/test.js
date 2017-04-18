@@ -49,32 +49,26 @@ const getDuration = require('..');
 describe('get-video-duration', function() {
 
 context('when using a readable stream', function() {
-  it('should return proper duration', function(done) {
+  it('should return proper duration', function() {
     return download(videoURL)
       .then(path => fs.createReadStream(path))
       .then(getDuration)
       .then((d) => { assert.equal(d, videoDuration); })
-      .then( () => { done() })
-      .catch(done);
   });
 });
 
 context('when using a file path', function() {
-  it('should return proper duration', function(done) {
+  it('should return proper duration', function() {
     return download(videoURL)
       .then(getDuration)
       .then((d) => { assert.equal(d, videoDuration); })
-      .then( () => { done() })
-      .catch(done);
   });
 });
 
 context('when using a URL', function() {
-  it('should return proper duration', function(done) {
+  it('should return proper duration', function() {
     return getDuration(videoURL)
       .then((d) => { assert.equal(d, videoDuration); })
-      .then( () => { done() })
-      .catch(done);
   });
 });
 
