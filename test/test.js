@@ -54,7 +54,8 @@ context('when using a readable stream', function() {
       .then(path => fs.createReadStream(path))
       .then(getDuration)
       .then((d) => { assert.equal(d, videoDuration); })
-      .then( () => { done() });
+      .then( () => { done() })
+      .catch(done);
   });
 });
 
@@ -63,7 +64,8 @@ context('when using a file path', function() {
     return download(videoURL)
       .then(getDuration)
       .then((d) => { assert.equal(d, videoDuration); })
-      .then( () => { done() });
+      .then( () => { done() })
+      .catch(done);
   });
 });
 
@@ -71,7 +73,8 @@ context('when using a URL', function() {
   it('should return proper duration', function(done) {
     return getDuration(videoURL)
       .then((d) => { assert.equal(d, videoDuration); })
-      .then( () => { done() });
+      .then( () => { done() })
+      .catch(done);
   });
 });
 
