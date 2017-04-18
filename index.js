@@ -12,7 +12,8 @@ const isStream = require('is-stream');
 const ffprobe = (input) => {
   const params = ['-v', 'error', '-show_format', '-show_streams'];
   if (isStream(input)) {
-    return execa('ffprobe', [...params, '-i', 'pipe:0'], { input });
+    const reject = false;
+    return execa('ffprobe', [...params, '-i', 'pipe:0'], { reject, input });
   }
   return execa('ffprobe', [...params, input]);
 };
