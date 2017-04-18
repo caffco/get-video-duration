@@ -14,9 +14,12 @@
     "eslint-config-airbnb-base": "^11.1.3",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-mocha": "^4.9.0",
-    "istanbul": "0",
-    "mocha": "2",
-    "tmp": "0.0.31"
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "tmp": "^0.0.31"
+  },
+  "engines": {
+    "node": ">=6.0.0"
   },
   "scripts": {
     "test": "mocha",
