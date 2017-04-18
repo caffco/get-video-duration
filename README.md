@@ -29,7 +29,7 @@ getDuration('video.mov').then((duration) => {
 });
 
 // From a URL...
-getDuration('video.mov').then((duration) => {
+getDuration('http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4').then((duration) => {
   console.log(duration);
 });
 
@@ -46,17 +46,6 @@ getDuration(stream).then((duration) => {
 # License
 
 MIT. Based on [get-video-dimensions](https://github.com/mgmtio/get-video-dimensions).
-
-# Usage
-
-```js
-getDuration(source)
-const getDuration = require('get-video-duration');
-
-getDuration('video.mov').then((duration) => {
-  console.log(duration);
-})
-```
 
 [npm-image]: https://img.shields.io/npm/v/get-video-duration.svg
 [npm-url]: https://npmjs.org/package/get-video-duration
