@@ -23,7 +23,7 @@
     "node": ">=6.0.0"
   },
   "scripts": {
-    "test": "mocha",
+    "test": "eslint . && mocha",
     "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot",
     "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter dot"
   },
