@@ -1,10 +1,19 @@
-node_js:
-- "6"
-- "7"
-- "8"
-- "9"
 language: node_js
+
+os:
+  - linux
+  - osx
+
+node_js:
+  - "6"
+  - "7"
+  - "8"
+  - "9"
+
+install:
+  - npm i -g ffmpeg-binaries
+  - npm i
+
 script: "npm run-script test-travis"
+
 after_script: "npm install coveralls@2 && cat ./coverage/lcov.info | coveralls"
-before_script:
-  - curl https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-64bit-static.tar.xz | sudo tar -C /usr/local/bin/ -xvJ
