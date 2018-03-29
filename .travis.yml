@@ -7,4 +7,4 @@ language: node_js
 script: "npm run-script test-travis"
 after_script: "npm install coveralls@2 && cat ./coverage/lcov.info | coveralls"
 before_script:
-  - curl http://ffmpeg.gusari.org/static/64bit/ffmpeg.static.64bit.latest.tar.gz | sudo tar -C /usr/local/bin/ -xvz
+  - curl https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-64bit-static.tar.xz | sudo tar -C /usr/local/bin/ -xvJ
