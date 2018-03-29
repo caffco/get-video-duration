@@ -1,8 +1,9 @@
 /* eslint-env node, mocha */
-/* eslint comma-dangle: ["error", {"functions": "never"}]*/
-/* eslint prefer-arrow-callback: "false" */
+/* eslint comma-dangle: ["error", {"functions": "never"}] */
+/* eslint prefer-arrow-callback: 0 */
+/* eslint func-names: 0 */
 
-const assert = require('assert');
+const { expect } = require('chai');
 
 const tmp = require('tmp');
 
@@ -10,7 +11,8 @@ const http = require('http');
 const fs = require('fs');
 
 const videoURL = 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4';
-const videoDuration = 60.139683;
+const videoDuration = 60;
+const videoDurationThreshold = 1;
 
 /**
  * Downloads file at given URL to a temporary file.
@@ -20,7 +22,6 @@ const videoDuration = 60.139683;
  * @return {Promise} Promise that will be resolved with path to downloaded file.
  */
 const download = (url) => {
-
   const tmpFilePromise = new Promise((fulfill, reject) => {
     tmp.file((err, path, fd) => {
       if (err) {
@@ -46,30 +47,28 @@ const download = (url) => {
 
 const getDuration = require('..');
 
-describe('get-video-duration', function() {
-
-context('when using a readable stream', function() {
-  it('should return proper duration', function() {
-    return download(videoURL)
+describe('get-video-duration', function () {
+  context('when using a readable stream', function () {
+    it('should return proper duration', function () {
+      return download(videoURL)
       .then(path => fs.createReadStream(path))
       .then(getDuration)
-      .then((d) => { assert.equal(d, videoDuration); })
+      .then(d => expect(d).to.be.closeTo(videoDuration, videoDurationThreshold));
+    });
   });
-});
 
-context('when using a file path', function() {
-  it('should return proper duration', function() {
-    return download(videoURL)
+  context('when using a file path', function () {
+    it('should return proper duration', function () {
+      return download(videoURL)
       .then(getDuration)
-      .then((d) => { assert.equal(d, videoDuration); })
+      .then(d => expect(d).to.be.closeTo(videoDuration, videoDurationThreshold));
+    });
   });
-});
 
-context('when using a URL', function() {
-  it('should return proper duration', function() {
-    return getDuration(videoURL)
-      .then((d) => { assert.equal(d, videoDuration); })
+  context('when using a URL', function () {
+    it('should return proper duration', function () {
+      return getDuration(videoURL)
+      .then(d => expect(d).to.be.closeTo(videoDuration, videoDurationThreshold));
+    });
   });
-});
-
 });
