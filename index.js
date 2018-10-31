@@ -1,6 +1,7 @@
 const execa = require('execa');
 const assert = require('assert');
 const isStream = require('is-stream');
+var ffprobe = require('ffprobe-static');
 
 /**
  * Returns a promise wrapping the result of executing ffprobe on given file or
@@ -13,9 +14,9 @@ const ffprobe = (input) => {
   const params = ['-v', 'error', '-show_format', '-show_streams'];
   if (isStream(input)) {
     const reject = false;
-    return execa('ffprobe', [...params, '-i', 'pipe:0'], { reject, input });
+    return execa(ffprobe.path, [...params, '-i', 'pipe:0'], { reject, input });
   }
-  return execa('ffprobe', [...params, input]);
+  return execa(ffprobe.path, [...params, input]);
 };
 
 /**

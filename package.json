@@ -1,5 +1,5 @@
 {
-  "name": "get-video-duration",
+  "name": "get-video-duration-static",
   "description": "Get the duration of a video file",
   "version": "0.3.0",
   "author": "Lluís Ulzurrun de Asanza Sàez <me@llu.is> (http://llu.is)",
@@ -7,6 +7,7 @@
   "repository": "caffco/get-video-duration",
   "dependencies": {
     "execa": "^0.10.0",
+    "ffprobe-static": "^3.0.0",
     "is-stream": "^1.1.0"
   },
   "devDependencies": {
