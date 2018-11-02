@@ -2,7 +2,6 @@
 # get-video-duration
 
 [![NPM version][npm-image]][npm-url]
-[![Node version][node-image]][node-url]
 [![Build status][travis-image]][travis-url]
 [![Test coverage][coveralls-image]][coveralls-url]
 [![Dependency Status][david-image]][david-url]
@@ -48,8 +47,6 @@ MIT. Based on [get-video-dimensions](https://github.com/mgmtio/get-video-dimensi
 
 [npm-image]: https://img.shields.io/npm/v/get-video-duration.svg
 [npm-url]: https://npmjs.org/package/get-video-duration
-[node-image]: https://img.shields.io/node/v/get-video-duration.svg
-[node-url]: https://npmjs.org/package/get-video-duration
 [travis-image]: https://img.shields.io/travis/caffco/get-video-duration.svg
 [travis-url]: https://travis-ci.org/caffco/get-video-duration
 [coveralls-image]: https://img.shields.io/coveralls/caffco/get-video-duration.svg
