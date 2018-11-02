@@ -1,10 +1,11 @@
 {
   "name": "get-video-duration",
   "description": "Get the duration of a video file",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": "Lluís Ulzurrun de Asanza Sàez <me@llu.is> (http://llu.is)",
   "license": "MIT",
   "repository": "caffco/get-video-duration",
+  "main": "src/index.js",
   "dependencies": {
     "execa": "^1.0.0",
     "ffprobe-static": "^3.0.0",
