@@ -17,4 +17,4 @@ install:
 
 script: "yarn test"
 
-after_script: "yarn add coveralls && cat ./coverage/lcov.info | coveralls"
+after_script: "yarn coveralls"
