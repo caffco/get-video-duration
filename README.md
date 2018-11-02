@@ -9,8 +9,7 @@
 [![License][license-image]][license-url]
 [![Downloads][downloads-image]][downloads-url]
 
-Get the duration of an audio with `ffprobe`.
-Requires the `ffprobe` binary installed.
+Get the duration of video files/streams with `ffprobe`.
 
 # Install
 
