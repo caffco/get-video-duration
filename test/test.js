@@ -45,7 +45,7 @@ const download = (url) => {
   return downloadPromise;
 };
 
-const getDuration = require('..');
+const getDuration = require('../src');
 
 describe('get-video-duration', function () {
   context('when using a readable stream', function () {
