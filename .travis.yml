@@ -15,6 +15,6 @@ node_js:
 install:
   - yarn
 
-script: "yarn test"
-
-after_script: "yarn coveralls"
+script:
+  - yarn test
+  - yarn coveralls
