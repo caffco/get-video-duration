@@ -1,3 +1,4 @@
+const ffprobe = require('ffprobe-static');
 const execa = require('execa');
 const assert = require('assert');
 const isStream = require('is-stream');
@@ -9,13 +10,13 @@ const isStream = require('is-stream');
  * or path to file to be used as input.
  * @return {Promise} Promise-like object wrapping ffprobe execution.
  */
-const ffprobe = (input) => {
+const runffprobe = (input) => {
   const params = ['-v', 'error', '-show_format', '-show_streams'];
   if (isStream(input)) {
     const reject = false;
-    return execa('ffprobe', [...params, '-i', 'pipe:0'], { reject, input });
+    return execa(ffprobe.path, [...params, '-i', 'pipe:0'], { reject, input });
   }
-  return execa('ffprobe', [...params, input]);
+  return execa(ffprobe.path, [...params, input]);
 };
 
 /**
@@ -28,7 +29,7 @@ const ffprobe = (input) => {
  * @return {Promise} Promise that will be resolved with given video duration, as
  * a float.
  */
-module.exports = input => ffprobe(input).then((out) => {
+module.exports = input => runffprobe(input).then((out) => {
   const { stdout } = out;
   const matched = stdout.match(/duration="?(\d*\.\d*)"?/);
   assert(matched && matched[1], 'No duration found!');

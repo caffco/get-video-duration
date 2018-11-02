@@ -6,7 +6,8 @@
   "license": "MIT",
   "repository": "caffco/get-video-duration",
   "dependencies": {
-    "execa": "^0.10.0",
+    "execa": "^1.0.0",
+    "ffprobe-static": "^3.0.0",
     "is-stream": "^1.1.0"
   },
   "devDependencies": {
