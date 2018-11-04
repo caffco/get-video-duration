@@ -3,7 +3,7 @@
 
 [![NPM version][npm-image]][npm-url]
 [![Build status][travis-image]][travis-url]
-[![Test coverage][coveralls-image]][coveralls-url]
+[![Test coverage][codecov-image]][codecov-url]
 [![Dependency Status][david-image]][david-url]
 [![License][license-image]][license-url]
 [![Downloads][downloads-image]][downloads-url]
@@ -49,8 +49,8 @@ MIT. Based on [get-video-dimensions](https://github.com/mgmtio/get-video-dimensi
 [npm-url]: https://npmjs.org/package/get-video-duration
 [travis-image]: https://img.shields.io/travis/caffco/get-video-duration.svg
 [travis-url]: https://travis-ci.org/caffco/get-video-duration
-[coveralls-image]: https://img.shields.io/coveralls/caffco/get-video-duration.svg
-[coveralls-url]: https://coveralls.io/r/caffco/get-video-duration
+[codecov-image]: https://codecov.io/gh/caffco/get-video-duration/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/caffco/get-video-duration
 [david-image]: http://img.shields.io/david/caffco/get-video-duration.svg
 [david-url]: https://david-dm.org/caffco/get-video-duration
 [license-image]: http://img.shields.io/npm/l/get-video-duration.svg
