@@ -52,6 +52,6 @@
     "typescript"
   ],
   "files": [
-    "src/**/*"
+    "dist/**/*"
   ]
 }
