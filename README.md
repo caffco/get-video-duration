@@ -6,6 +6,7 @@
 [![Test coverage][codecov-image]][codecov-url]
 [![Dependency Status][david-image]][david-url]
 [![License][license-image]][license-url]
+[![NPM bundle size (minified)][bundle-size-image]][npm-url]
 [![Downloads][downloads-image]][downloads-url]
 
 Get the duration of video files/streams with `ffprobe`.
@@ -47,6 +48,7 @@ MIT. Based on [get-video-dimensions](https://github.com/mgmtio/get-video-dimensi
 
 [npm-image]: https://img.shields.io/npm/v/get-video-duration.svg
 [npm-url]: https://npmjs.org/package/get-video-duration
+[bundle-size-image]: https://img.shields.io/bundlephobia/min/get-video-duration.svg
 [travis-image]: https://img.shields.io/travis/caffco/get-video-duration.svg
 [travis-url]: https://travis-ci.org/caffco/get-video-duration
 [codecov-image]: https://codecov.io/gh/caffco/get-video-duration/branch/master/graph/badge.svg
