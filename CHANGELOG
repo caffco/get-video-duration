@@ -1,3 +1,10 @@
+# 1.0.1
+
+Changed:
+
+- Don't export raw source code
+- Package ES6-compatible module
+
 # 1.0.0
 
 New:
