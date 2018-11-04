@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "es6",
+    "noImplicitAny": true,
+    "preserveConstEnums": true,
+    "declaration": true,
+    "strictNullChecks": true,
+    "strict": true,
+    "outDir": "dist/es6"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "require": [
+    "ts-node/register"
+  ],
+  "extension": [
+    ".ts",
+    ".tsx"
+  ],
+  "exclude": [
+    "**/*.d.ts",
+    "coverage",
+    "dist",
+    "test"
+  ],
+  "reporter": [
+    "html",
+    "lcov",
+    "text-summary"
+  ],
+  "all": true,
+  "sourceMap": true,
+  "instrument": true
+}

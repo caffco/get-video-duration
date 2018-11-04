@@ -16,4 +16,7 @@ install:
 
 script:
   - yarn test
-  - yarn coveralls
+
+after_success:
+  - yarn global add codecov
+  - codecov
