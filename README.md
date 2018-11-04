@@ -20,26 +20,26 @@ $ npm install --save get-video-duration
 # Usage
 
 ```js
-const getDuration = require('get-video-duration');
+const { getVideoDurationInSeconds } = require('get-video-duration')
 
 // From a local path...
-getDuration('video.mov').then((duration) => {
-  console.log(duration);
-});
+getVideoDurationInSeconds('video.mov').then((duration) => {
+  console.log(duration)
+})
 
 // From a URL...
-getDuration('http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4').then((duration) => {
-  console.log(duration);
-});
+getVideoDurationInSeconds('http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4').then((duration) => {
+  console.log(duration)
+})
 
 // From a readable stream...
 
-const fs = require('fs');
-const stream = fs.createReadStream('video.mov');
+const fs = require('fs')
+const stream = fs.createReadStream('video.mov')
 
-getDuration(stream).then((duration) => {
-  console.log(duration);
-});
+getVideoDurationInSeconds(stream).then((duration) => {
+  console.log(duration)
+})
 ```
 
 # License
