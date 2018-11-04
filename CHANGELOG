@@ -2,7 +2,7 @@
 
 New:
 
-- Rewriten in TypeScript
+- Rewritten in TypeScript
 
 # 0.4.0
 
@@ -13,6 +13,12 @@ New:
 Changed:
 
 - Upgraded dependencies to their latest version
+
+# 0.3.0
+
+Changed:
+
+- Upgraded Execa to 0.10.0
 
 # Older versions
 
