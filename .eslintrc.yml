@@ -1,7 +1,0 @@
-extends: airbnb-base
-plugins:
-  - import
-  - mocha
-env:
-  node: true
-  es6: true
