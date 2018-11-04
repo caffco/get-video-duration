@@ -41,7 +41,8 @@
     "build:commonjs": "tsc --p tsconfig.commonjs.json",
     "build:es6": "tsc --p tsconfig.es6.json",
     "test": "run-s lint test:coverage",
-    "test:coverage": "nyc mocha"
+    "test:coverage": "nyc mocha",
+    "prepublishOnly": "run-s test build"
   },
   "keywords": [
     "video",
