@@ -30,9 +30,12 @@ function getFFprobeWrappedExecution (input: string | Stream): execa.ExecaChildPr
  * @return {Promise} Promise that will be resolved with given video duration in
  * seconds.
  */
-export default async function getDurationInSeconds (input: string | Stream): Promise<number> {
+async function getVideoDurationInSeconds (input: string | Stream): Promise<number> {
   const { stdout } = await getFFprobeWrappedExecution(input)
   const matched = stdout.match(/duration="?(\d*\.\d*)"?/)
   if (matched && matched[1]) return parseFloat(matched[1])
   throw new Error('No duration found!')
 }
+
+export default getVideoDurationInSeconds
+export { getVideoDurationInSeconds }

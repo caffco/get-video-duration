@@ -14,9 +14,13 @@ const testTextURL = 'https://github.com/caffco/get-video-duration/blob/master/LI
 const expectedVideoDuration = 60
 const expectedVideoDurationThreshold = 1
 
-import getDuration from '../src/index'
+import getDuration, { getVideoDurationInSeconds } from '../src/index'
 
 describe('get-video-duration', function () {
+  it('Should export function under named export, too', function () {
+    expect(getDuration).to.equal(getVideoDurationInSeconds)
+  })
+
   context('When using a readable stream', function () {
     it('Should return proper duration', async function () {
       const temporalFilePath = await downloadFileToTemporalFile(testVideoURL)
