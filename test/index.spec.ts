@@ -47,6 +47,16 @@ describe('get-video-duration', function () {
         .that.is.closeTo(expectedVideoDuration, expectedVideoDurationThreshold)
     })
 
+    it('Should work with spaces in paths', async function () {
+      const temporalFilePath = await downloadFileToTemporalFile(testVideoURL, {
+        includingSpaces: true
+      })
+      const duration = await getDuration(temporalFilePath)
+      expect(duration)
+        .to.be.a('number')
+        .that.is.closeTo(expectedVideoDuration, expectedVideoDurationThreshold)
+    })
+
     it('Should throw an error if not a video file', async function () {
       const durationPromise = getDuration(resolvePath(__dirname, __filename))
       await expect(durationPromise).to.be.eventually.rejected
@@ -75,15 +85,22 @@ describe('get-video-duration', function () {
   })
 })
 
-async function downloadFileToTemporalFile (urlToDownload: string): Promise<string> {
-  const temporalFilePath = await getNewTemporalFilePath()
+interface TemporalFileOptions {
+  includingSpaces: boolean
+}
+
+async function downloadFileToTemporalFile (urlToDownload: string, options?: TemporalFileOptions): Promise<string> {
+  const temporalFilePath = await getNewTemporalFilePath(options)
   await downloadURLToPath(urlToDownload, temporalFilePath)
   return temporalFilePath
 }
 
-function getNewTemporalFilePath (): Promise<string> {
+function getNewTemporalFilePath (options?: TemporalFileOptions): Promise<string> {
+  const includingSpaces = options && options.includingSpaces
+  const postfix = includingSpaces ? ' with spaces' : ''
+
   return new Promise(function (resolve, reject) {
-    tmp.file(function (err, path) {
+    tmp.file({ postfix }, function (err, path) {
       if (err) return reject(err)
       return resolve(path)
     })
