@@ -1,9 +1,9 @@
 import * as ffprobe from 'ffprobe-static'
 import * as execa from 'execa'
 import * as isStream from 'is-stream'
-import { Stream } from 'stream'
+import { Readable } from 'stream'
 
-function getFFprobeWrappedExecution (input: string | Stream): execa.ExecaChildProcess {
+function getFFprobeWrappedExecution (input: string | Readable): execa.ExecaChildProcess {
   const params = ['-v', 'error', '-show_format', '-show_streams']
 
   if (typeof input === 'string') {
@@ -30,7 +30,7 @@ function getFFprobeWrappedExecution (input: string | Stream): execa.ExecaChildPr
  * @return {Promise} Promise that will be resolved with given video duration in
  * seconds.
  */
-async function getVideoDurationInSeconds (input: string | Stream): Promise<number> {
+async function getVideoDurationInSeconds (input: string | Readable): Promise<number> {
   const { stdout } = await getFFprobeWrappedExecution(input)
   const matched = stdout.match(/duration="?(\d*\.\d*)"?/)
   if (matched && matched[1]) return parseFloat(matched[1])
