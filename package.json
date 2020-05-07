@@ -1,7 +1,7 @@
 {
   "name": "get-video-duration",
   "description": "Get the duration of a video file",
-  "version": "2.0.0",
+  "version": "3.0.0-beta.1",
   "author": "Lluís Ulzurrun de Asanza Sàez <me@llu.is> (http://llu.is)",
   "license": "MIT",
   "repository": "caffco/get-video-duration",
