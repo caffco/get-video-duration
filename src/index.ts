@@ -1,4 +1,5 @@
-import * as ffprobe from 'ffprobe-static'
+/// <reference types="./ffprobe" />
+import { path as ffprobePath } from '@ffprobe-installer/ffprobe'
 import * as execa from 'execa'
 import * as isStream from 'is-stream'
 import { Readable } from 'stream'
@@ -9,11 +10,11 @@ function getFFprobeWrappedExecution(
   const params = ['-v', 'error', '-show_format', '-show_streams']
 
   if (typeof input === 'string') {
-    return execa(ffprobe.path, [...params, input])
+    return execa(ffprobePath, [...params, input])
   }
 
   if (isStream(input)) {
-    return execa(ffprobe.path, [...params, '-i', 'pipe:0'], {
+    return execa(ffprobePath, [...params, '-i', 'pipe:0'], {
       reject: false,
       input,
     })
