@@ -16,6 +16,35 @@ const expectedVideoDurationThreshold = 1
 
 import getDuration, { getVideoDurationInSeconds } from '../src/index'
 
+function getNewTemporalFilePath(options?: TemporalFileOptions): Promise<string> {
+  const includingSpaces = options && options.includingSpaces
+  const postfix = includingSpaces ? ' with spaces' : ''
+
+  return new Promise(function (resolve, reject) {
+    tmp.file({ postfix }, function (err, path) {
+      if (err) return reject(err)
+      return resolve(path)
+    })
+  })
+}
+
+function downloadURLToPath(urlToDownload: string, pathToBeWritten: string): Promise<string> {
+  return new Promise((resolve, reject) => {
+    http.get(urlToDownload, (res) => {
+      res.pipe(fs.createWriteStream(pathToBeWritten))
+      res.on('end', () => { resolve(pathToBeWritten) })
+      res.on('error', (err) => { reject(err) })
+    })
+  })
+}
+
+
+async function downloadFileToTemporalFile(urlToDownload: string, options?: TemporalFileOptions): Promise<string> {
+  const temporalFilePath = await getNewTemporalFilePath(options)
+  await downloadURLToPath(urlToDownload, temporalFilePath)
+  return temporalFilePath
+}
+
 describe('get-video-duration', function () {
   it('Should export function under named export, too', function () {
     expect(getDuration).to.equal(getVideoDurationInSeconds)
@@ -79,40 +108,12 @@ describe('get-video-duration', function () {
 
   context('When passing a wrong-type parameter', function () {
     it('Should throw an error', async function () {
-      const durationPromise = getDuration(0 as any as string) // To trick TypeScript compiler
+      const durationPromise = getDuration(0 as unknown as string) // To trick TypeScript compiler
       await expect(durationPromise).to.be.eventually.rejected
     })
   })
 })
 
 interface TemporalFileOptions {
-  includingSpaces: boolean
-}
-
-async function downloadFileToTemporalFile (urlToDownload: string, options?: TemporalFileOptions): Promise<string> {
-  const temporalFilePath = await getNewTemporalFilePath(options)
-  await downloadURLToPath(urlToDownload, temporalFilePath)
-  return temporalFilePath
-}
-
-function getNewTemporalFilePath (options?: TemporalFileOptions): Promise<string> {
-  const includingSpaces = options && options.includingSpaces
-  const postfix = includingSpaces ? ' with spaces' : ''
-
-  return new Promise(function (resolve, reject) {
-    tmp.file({ postfix }, function (err, path) {
-      if (err) return reject(err)
-      return resolve(path)
-    })
-  })
-}
-
-function downloadURLToPath (urlToDownload: string, pathToBeWritten: string): Promise<string> {
-  return new Promise((resolve, reject) => {
-    http.get(urlToDownload, (res) => {
-      res.pipe(fs.createWriteStream(pathToBeWritten))
-      res.on('end', () => { resolve(pathToBeWritten) })
-      res.on('error', (err) => { reject(err) })
-    })
-  })
+  includingSpaces: boolean;
 }
