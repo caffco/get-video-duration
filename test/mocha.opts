@@ -1,6 +1,0 @@
---timeout 30s
---require ts-node/register
---require source-map-support/register
---full-trace
---recursive
-**/*.spec.ts
