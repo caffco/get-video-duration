@@ -1,12 +1,8 @@
 {
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "target": "es6",
-    "module": "es6",
-    "noImplicitAny": true,
-    "preserveConstEnums": true,
-    "declaration": true,
-    "strictNullChecks": true,
-    "strict": true,
+    "target": "ES6",
+    "module": "CommonJS",
     "outDir": "dist/es6"
   },
   "include": [
