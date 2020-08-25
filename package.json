@@ -8,7 +8,7 @@
   "main": "dist/commonjs/index.js",
   "module": "dist/es6/index.js",
   "dependencies": {
-    "@ffprobe-installer/ffprobe": "^1.0.12",
+    "@ffprobe-installer/ffprobe": "^1.1.0",
     "execa": "^4.0.0",
     "is-stream": "^2.0.0"
   },
