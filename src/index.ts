@@ -1,5 +1,9 @@
 /// <reference types="./ffprobe" />
 import { path as ffprobePath } from '@ffprobe-installer/ffprobe'
+ffprobePath = ffprobepath.replace(
+'app.asar',
+'app.asar.unpacked'
+);
 import * as execa from 'execa'
 import * as isStream from 'is-stream'
 import { Readable } from 'stream'
