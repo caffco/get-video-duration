@@ -1,9 +1,9 @@
-
 # get-video-duration
 
 [![NPM version][npm-image]][npm-url]
-[![Build status][travis-image]][travis-url]
-[![Test coverage][codecov-image]][codecov-url]
+![Build Status](https://github.com/caffco/get-video-duration/workflows/test/badge.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d66b9477ad4f7a14b5c9/maintainability)](https://codeclimate.com/github/caffco/get-video-duration/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/d66b9477ad4f7a14b5c9/test_coverage)](https://codeclimate.com/github/caffco/get-video-duration/test_coverage)
 [![Dependency Status][david-image]][david-url]
 [![License][license-image]][license-url]
 [![NPM bundle size (minified)][bundle-size-image]][npm-url]
@@ -28,7 +28,9 @@ getVideoDurationInSeconds('video.mov').then((duration) => {
 })
 
 // From a URL...
-getVideoDurationInSeconds('http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4').then((duration) => {
+getVideoDurationInSeconds(
+  'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4'
+).then((duration) => {
   console.log(duration)
 })
 
@@ -49,10 +51,6 @@ MIT. Based on [get-video-dimensions](https://github.com/mgmtio/get-video-dimensi
 [npm-image]: https://img.shields.io/npm/v/get-video-duration.svg
 [npm-url]: https://npmjs.org/package/get-video-duration
 [bundle-size-image]: https://img.shields.io/bundlephobia/min/get-video-duration.svg
-[travis-image]: https://img.shields.io/travis/caffco/get-video-duration.svg
-[travis-url]: https://travis-ci.org/caffco/get-video-duration
-[codecov-image]: https://codecov.io/gh/caffco/get-video-duration/branch/master/graph/badge.svg
-[codecov-url]: https://codecov.io/gh/caffco/get-video-duration
 [david-image]: http://img.shields.io/david/caffco/get-video-duration.svg
 [david-url]: https://david-dm.org/caffco/get-video-duration
 [license-image]: http://img.shields.io/npm/l/get-video-duration.svg
