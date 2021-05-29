@@ -1,6 +1,4 @@
 /// <reference types="./ffprobe" />
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
 import { path as ffprobePath } from 'node-ffprobe-installer'
 import * as execa from 'execa'
 import * as isStream from 'is-stream'
