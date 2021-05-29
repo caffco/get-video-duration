@@ -448,19 +448,6 @@
   resolved "https://registry.yarnpkg.com/@ffprobe-installer/darwin-x64/-/darwin-x64-4.1.0.tgz#025c5108faf3e456e6a407dd65b798f8dcc805dd"
   integrity sha512-ESwvOnbGVGK0r7bUdThSZAYipQOH0X79M4SoNZ5Tg77lq/RVbEdpObNEM2oRfLINbMlQQrezA4VYzt0n/DOkcQ==
 
-"@ffprobe-installer/ffprobe@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@ffprobe-installer/ffprobe/-/ffprobe-1.1.0.tgz#a2f6fbd383f90d9359dc6c0552dca9793a884b3c"
-  integrity sha512-koiZrWEC4hrzCuN+/ijHkeiyx7CnUr/cnGynQAgHMDphsDgZkXivNzZrtT6VI5Nf0SkQqC2ZPU5rx3nZ8yEqLQ==
-  optionalDependencies:
-    "@ffprobe-installer/darwin-x64" "4.1.0"
-    "@ffprobe-installer/linux-arm" "4.3.2"
-    "@ffprobe-installer/linux-arm64" "4.3.2"
-    "@ffprobe-installer/linux-ia32" "4.1.0"
-    "@ffprobe-installer/linux-x64" "4.1.0"
-    "@ffprobe-installer/win32-ia32" "4.1.0"
-    "@ffprobe-installer/win32-x64" "4.1.0"
-
 "@ffprobe-installer/linux-arm64@4.3.2":
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/@ffprobe-installer/linux-arm64/-/linux-arm64-4.3.2.tgz#a64ed27672d55460bdea59bc63da0cf3731f19e8"
@@ -2042,6 +2029,11 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "2.1.1"
 
+ffprobe-darwin-arm64@4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/ffprobe-darwin-arm64/-/ffprobe-darwin-arm64-4.4.0.tgz#dc8d86ebbe37c38c1020708a2df98643d78c653d"
+  integrity sha512-09CDeZ5ej885k7aDw5c597sAufjmVwWKCuBskgAk+EqFJBWi9zrPDExFxjgSe4PNUlTNtFvm/jEEJH13rXAj5w==
+
 figures@^1.3.5:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/figures/-/figures-1.7.0.tgz#cbe1e3affcf1cd44b80cadfed28dc793a9701d2e"
@@ -3512,6 +3504,20 @@ nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
   integrity sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
+
+node-ffprobe-installer@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/node-ffprobe-installer/-/node-ffprobe-installer-1.2.3.tgz#b8f5167a439545edf80b85153d130361dfbc803f"
+  integrity sha512-g4KN1Z1wX6vL5yEPXcMzkg2huj42pqynWU7wyHAhP5axe+djYReUaa2aFtDkybqqXV729F+8OUGJbKwChkLefw==
+  optionalDependencies:
+    "@ffprobe-installer/darwin-x64" "4.1.0"
+    "@ffprobe-installer/linux-arm" "4.3.2"
+    "@ffprobe-installer/linux-arm64" "4.3.2"
+    "@ffprobe-installer/linux-ia32" "4.1.0"
+    "@ffprobe-installer/linux-x64" "4.1.0"
+    "@ffprobe-installer/win32-ia32" "4.1.0"
+    "@ffprobe-installer/win32-x64" "4.1.0"
+    ffprobe-darwin-arm64 "4.4.0"
 
 node-int64@^0.4.0:
   version "0.4.0"
