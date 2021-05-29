@@ -1,14 +1,14 @@
 {
-  "name": "get-video-duration",
-  "description": "Get the duration of a video file",
-  "version": "3.0.2",
+  "name": "get-video-duration-apple-silicon",
+  "description": "Get the duration of a video file, with darwin-arm64 support (Apple Silicon)",
+  "version": "3.0.3",
   "author": "Lluís Ulzurrun de Asanza Sàez <me@llu.is> (http://llu.is)",
   "license": "MIT",
   "repository": "caffco/get-video-duration",
   "main": "dist/commonjs/index.js",
   "module": "dist/es6/index.js",
   "dependencies": {
-    "node-ffprobe-installer": "^1.2.1",
+    "node-ffprobe-installer": "^1.2.3",
     "execa": "^5.0.0",
     "is-stream": "^2.0.0"
   },
