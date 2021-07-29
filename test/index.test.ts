@@ -122,7 +122,7 @@ describe('get-video-duration', function () {
 
   describe('When passing a wrong-type parameter', function () {
     it('Should throw an error', async function () {
-      const durationPromise = getDuration((0 as unknown) as string) // To trick TypeScript compiler
+      const durationPromise = getDuration(0 as unknown as string) // To trick TypeScript compiler
       await expect(durationPromise).rejects.toThrowError()
     })
   })
