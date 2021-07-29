@@ -4,7 +4,6 @@
 ![Build Status](https://github.com/caffco/get-video-duration/workflows/test/badge.svg)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d66b9477ad4f7a14b5c9/maintainability)](https://codeclimate.com/github/caffco/get-video-duration/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/d66b9477ad4f7a14b5c9/test_coverage)](https://codeclimate.com/github/caffco/get-video-duration/test_coverage)
-[![Dependency Status][david-image]][david-url]
 [![License][license-image]][license-url]
 [![NPM bundle size (minified)][bundle-size-image]][npm-url]
 [![Downloads][downloads-image]][downloads-url]
@@ -51,8 +50,6 @@ MIT. Based on [get-video-dimensions](https://github.com/mgmtio/get-video-dimensi
 [npm-image]: https://img.shields.io/npm/v/get-video-duration.svg
 [npm-url]: https://npmjs.org/package/get-video-duration
 [bundle-size-image]: https://img.shields.io/bundlephobia/min/get-video-duration.svg
-[david-image]: http://img.shields.io/david/caffco/get-video-duration.svg
-[david-url]: https://david-dm.org/caffco/get-video-duration
 [license-image]: http://img.shields.io/npm/l/get-video-duration.svg
 [license-url]: LICENSE
 [downloads-image]: http://img.shields.io/npm/dm/get-video-duration.svg
