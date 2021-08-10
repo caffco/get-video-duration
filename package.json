@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@types/ffprobe-static": "^2.0.0",
-    "@types/jest": "^26.0.20",
+    "@types/jest": "^27.0.0",
     "@types/node": "^15.0.0",
     "@types/tmp": "^0.2.0",
     "@typescript-eslint/eslint-plugin": "^2.31.0",
