@@ -1,3 +1,13 @@
+# 4.0.0:
+
+BREAKING:
+
+- Dropped support for Node 11 and 13.
+
+Changed:
+
+- Dependencies upgraded.
+
 # 3.1.0:
 
 New:
@@ -29,7 +39,7 @@ Changed:
 
 BREAKING:
 
-- Replaced `ffprobe-static` by `@ffprobe-installer/ffprobe` 
+- Replaced `ffprobe-static` by `@ffprobe-installer/ffprobe`
 
 # 2.0.0:
 
