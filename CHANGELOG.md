@@ -8,7 +8,7 @@ Changed:
 
 - Dependencies upgraded.
 
-# 3.1.0:
+# 3.1.0
 
 New:
 
@@ -23,25 +23,25 @@ Misc:
 - Refactor tests from Mocha to Jest.
 - Move CI to Github Actions.
 
-# 3.0.2:
+# 3.0.2
 
 Changed:
 
 - Upgrade @ffprobe-installer/ffprobe to v1.1.0.
 
-# 3.0.1:
+# 3.0.1
 
 Changed:
 
 - Dependencies upgraded to their latest semver-compatible versions.
 
-# 3.0.0:
+# 3.0.0
 
 BREAKING:
 
 - Replaced `ffprobe-static` by `@ffprobe-installer/ffprobe`
 
-# 2.0.0:
+# 2.0.0
 
 BREAKING:
 
