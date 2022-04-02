@@ -1,5 +1,5 @@
-/// <reference types="./ffprobe" />
-import { path as ffprobePath } from 'node-ffprobe-installer'
+import * as ffprobe from '@ffprobe-installer/ffprobe'
+
 import * as execa from 'execa'
 import * as isStream from 'is-stream'
 import { Readable } from 'stream'
