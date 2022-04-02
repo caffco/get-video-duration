@@ -11,7 +11,7 @@ const testTextURL =
 const expectedVideoDuration = 60
 const expectedVideoDurationThreshold = 0
 
-import getDuration, { getVideoDurationInSeconds } from '../src/index'
+import getDuration, { getVideoDurationInSeconds } from '../src'
 
 const getNewTemporalFilePath = (
   options?: TemporalFileOptions
