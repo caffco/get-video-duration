@@ -13,9 +13,9 @@ const expectedVideoDurationThreshold = 0
 
 import getDuration, { getVideoDurationInSeconds } from '../src/index'
 
-function getNewTemporalFilePath(
+const getNewTemporalFilePath = (
   options?: TemporalFileOptions
-): Promise<string> {
+): Promise<string> => {
   const includingSpaces = options && options.includingSpaces
   const postfix = includingSpaces ? ' with spaces' : ''
 
@@ -27,10 +27,10 @@ function getNewTemporalFilePath(
   })
 }
 
-function downloadURLToPath(
+const downloadURLToPath = (
   urlToDownload: string,
   pathToBeWritten: string
-): Promise<string> {
+): Promise<string> => {
   return new Promise((resolve, reject) => {
     http.get(urlToDownload, (res) => {
       res.pipe(fs.createWriteStream(pathToBeWritten))
@@ -44,22 +44,22 @@ function downloadURLToPath(
   })
 }
 
-async function downloadFileToTemporalFile(
+const downloadFileToTemporalFile = async (
   urlToDownload: string,
   options?: TemporalFileOptions
-): Promise<string> {
+): Promise<string> => {
   const temporalFilePath = await getNewTemporalFilePath(options)
   await downloadURLToPath(urlToDownload, temporalFilePath)
   return temporalFilePath
 }
 
-describe('get-video-duration', function () {
-  it('Should export function under named export, too', function () {
+describe('get-video-duration', () => {
+  it('Should export function under named export, too', () => {
     expect(getDuration).toBe(getVideoDurationInSeconds)
   })
 
-  describe('When using a readable stream', function () {
-    it('Should return proper duration', async function () {
+  describe('When using a readable stream', () => {
+    it('Should return proper duration', async () => {
       const temporalFilePath = await downloadFileToTemporalFile(testVideoURL)
       const inputFileReadStream = fs.createReadStream(temporalFilePath)
       const duration = await getDuration(inputFileReadStream)
@@ -69,7 +69,7 @@ describe('get-video-duration', function () {
       )
     })
 
-    it('Should throw an error if not a video stream', async function () {
+    it('Should throw an error if not a video stream', async () => {
       const inputFileReadStream = fs.createReadStream(
         resolvePath(__dirname, __filename)
       )
@@ -78,8 +78,8 @@ describe('get-video-duration', function () {
     })
   })
 
-  describe('When using a file path', function () {
-    it('Should return proper duration', async function () {
+  describe('When using a file path', () => {
+    it('Should return proper duration', async () => {
       const temporalFilePath = await downloadFileToTemporalFile(testVideoURL)
       const duration = await getDuration(temporalFilePath)
       expect(duration).toBeCloseTo(
@@ -88,7 +88,7 @@ describe('get-video-duration', function () {
       )
     })
 
-    it('Should work with spaces in paths', async function () {
+    it('Should work with spaces in paths', async () => {
       const temporalFilePath = await downloadFileToTemporalFile(testVideoURL, {
         includingSpaces: true,
       })
@@ -99,14 +99,14 @@ describe('get-video-duration', function () {
       )
     })
 
-    it('Should throw an error if not a video file', async function () {
+    it('Should throw an error if not a video file', async () => {
       const durationPromise = getDuration(resolvePath(__dirname, __filename))
       await expect(durationPromise).rejects.toThrowError()
     })
   })
 
-  describe('When using a URL', function () {
-    it('Should return proper duration', async function () {
+  describe('When using a URL', () => {
+    it('Should return proper duration', async () => {
       const duration = await getDuration(testVideoURL)
       expect(duration).toBeCloseTo(
         expectedVideoDuration,
@@ -114,15 +114,15 @@ describe('get-video-duration', function () {
       )
     })
 
-    it('Should throw an error if not a video URL', async function () {
+    it('Should throw an error if not a video URL', async () => {
       const durationPromise = getDuration(testTextURL)
       await expect(durationPromise).rejects.toThrowError()
     })
   })
 
-  describe('When passing a wrong-type parameter', function () {
-    it('Should throw an error', async function () {
-      const durationPromise = getDuration(0 as unknown as string) // To trick TypeScript compiler
+  describe('When passing a wrong-type parameter', () => {
+    it('Should throw an error', async () => {
+      const durationPromise = getDuration(0 as unknown as string)
       await expect(durationPromise).rejects.toThrowError()
     })
   })
