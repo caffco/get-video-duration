@@ -1,4 +1,10 @@
-# 4.0.0:
+# 4.1.0
+
+Changed:
+
+- Allow overriding `ffprobe` path by passing a second, optional, parameter.
+
+# 4.0.0
 
 BREAKING:
 
