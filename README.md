@@ -41,6 +41,11 @@ const stream = fs.createReadStream('video.mov')
 getVideoDurationInSeconds(stream).then((duration) => {
   console.log(duration)
 })
+
+// If you need to customize the path to ffprobe...
+getVideoDurationInSeconds('video.mov', '/path/to/ffprobe').then((duration) => {
+  console.log(duration)
+})
 ```
 
 # License
