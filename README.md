@@ -10,6 +10,10 @@
 
 Get the duration of video files/streams with `ffprobe`.
 
+# Supported platforms
+
+Currently this package only supports Linux, Windows 7+, and MacOS 10.9+. **This package does not work in the browser**, iOS or Android.
+
 # Install
 
 ```bash
