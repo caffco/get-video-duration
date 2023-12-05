@@ -1,14 +1,15 @@
 import 'jest'
 
 import * as tmp from 'tmp'
-import * as http from 'http'
+import * as https from 'https'
 import * as fs from 'fs'
 import { resolve as resolvePath } from 'path'
 
-const testVideoURL = 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4'
+const testVideoURL =
+  'https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
 const testTextURL =
   'https://github.com/caffco/get-video-duration/blob/master/LICENSE'
-const expectedVideoDuration = 60
+const expectedVideoDuration = 596
 const expectedVideoDurationThreshold = 0
 
 import getDuration, { getVideoDurationInSeconds } from '../src'
@@ -32,7 +33,7 @@ const downloadURLToPath = (
   pathToBeWritten: string
 ): Promise<string> => {
   return new Promise((resolve, reject) => {
-    http.get(urlToDownload, (res) => {
+    https.get(urlToDownload, (res) => {
       res.pipe(fs.createWriteStream(pathToBeWritten))
       res.on('end', () => {
         resolve(pathToBeWritten)
