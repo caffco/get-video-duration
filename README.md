@@ -52,6 +52,12 @@ getVideoDurationInSeconds('video.mov', '/path/to/ffprobe').then((duration) => {
 })
 ```
 
+# FAQ
+
+## I get a segmentation fault when trying to download a URL
+
+This is a limitation of the underlying ffprobe binary, which has glibc statically linked and that prevents DNS resolution. Install `nscd` package through your package manager to solve this issue.
+
 # License
 
 MIT. Based on [get-video-dimensions](https://github.com/mgmtio/get-video-dimensions).
