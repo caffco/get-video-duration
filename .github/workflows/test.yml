@@ -1,4 +1,4 @@
-name: "test"
+name: 'test'
 on:
   pull_request:
   push:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [14.x, 16.x, 18.x, 20.x, 21.x]
         os: [ubuntu-latest]
     steps:
       - name: Install git
@@ -34,6 +34,6 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
           repository_root_path: ${{github.workspace}}
-          collect_coverage: "true"
+          collect_coverage: 'true'
           coverage_file_patterns: |
             coverage/lcov.info:lcov
