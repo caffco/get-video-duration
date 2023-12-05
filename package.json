@@ -9,7 +9,7 @@
   "module": "dist/es6/index.js",
   "dependencies": {
     "@ffprobe-installer/ffprobe": "^2.1.2",
-    "execa": "^5.0.0",
+    "execa": "^8.0.1",
     "is-stream": "^2.0.0"
   },
   "devDependencies": {
