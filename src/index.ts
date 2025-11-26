@@ -15,7 +15,7 @@ const TEMP_DIR_PREFIX = 'get-video-duration-'
 
 const getFFprobeWrappedExecution = (
   input: string | Readable,
-  ffprobePath?: string
+  ffprobePath?: string,
 ): execa.ExecaChildProcess => {
   const params = ['-v', 'error', '-show_format', '-show_streams']
 
@@ -51,11 +51,11 @@ const getFFprobeWrappedExecution = (
  */
 const getVideoDurationInSeconds = async (
   input: string | Readable,
-  ffprobePath?: string
+  ffprobePath?: string,
 ): Promise<number> => {
   if (typeof input === 'string' && isRemoteUrl(input)) {
     return withDownloadedSource(input, async (localPath) =>
-      readDuration(localPath, ffprobePath)
+      readDuration(localPath, ffprobePath),
     )
   }
 
@@ -67,7 +67,7 @@ export { getVideoDurationInSeconds }
 
 const readDuration = async (
   input: string | Readable,
-  ffprobePath?: string
+  ffprobePath?: string,
 ): Promise<number> => {
   const { stdout } = await getFFprobeWrappedExecution(input, ffprobePath)
   const matched = stdout.match(/duration="?(\d*\.\d*)"?/)
@@ -86,7 +86,7 @@ const isRemoteUrl = (input: string): boolean => {
 
 const withDownloadedSource = async (
   url: string,
-  useLocalPath: (path: string) => Promise<number>
+  useLocalPath: (path: string) => Promise<number>,
 ): Promise<number> => {
   const { path, cleanup } = await downloadUrlToTempFile(url)
   try {
@@ -97,10 +97,10 @@ const withDownloadedSource = async (
 }
 
 const downloadUrlToTempFile = async (
-  url: string
+  url: string,
 ): Promise<{ path: string; cleanup: () => Promise<void> }> => {
   const tempDirectory = await fsPromises.mkdtemp(
-    join(tmpdir(), TEMP_DIR_PREFIX)
+    join(tmpdir(), TEMP_DIR_PREFIX),
   )
   const tempFilePath = join(tempDirectory, 'source')
 
@@ -138,8 +138,8 @@ const fetchToFile = async (url: string, destination: string): Promise<void> => {
             new Error(
               `Unexpected status code ${
                 response.statusCode ?? 'unknown'
-              } while requesting ${url}`
-            )
+              } while requesting ${url}`,
+            ),
           )
           response.resume()
           return

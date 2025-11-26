@@ -15,7 +15,7 @@ const expectedVideoDurationThreshold = 0
 import getDuration, { getVideoDurationInSeconds } from '../src'
 
 const getNewTemporalFilePath = (
-  options?: TemporalFileOptions
+  options?: TemporalFileOptions,
 ): Promise<string> => {
   const includingSpaces = options && options.includingSpaces
   const postfix = includingSpaces ? ' with spaces' : ''
@@ -30,7 +30,7 @@ const getNewTemporalFilePath = (
 
 const downloadURLToPath = (
   urlToDownload: string,
-  pathToBeWritten: string
+  pathToBeWritten: string,
 ): Promise<string> => {
   return new Promise((resolve, reject) => {
     https.get(urlToDownload, (res) => {
@@ -47,7 +47,7 @@ const downloadURLToPath = (
 
 const downloadFileToTemporalFile = async (
   urlToDownload: string,
-  options?: TemporalFileOptions
+  options?: TemporalFileOptions,
 ): Promise<string> => {
   const temporalFilePath = await getNewTemporalFilePath(options)
   await downloadURLToPath(urlToDownload, temporalFilePath)
@@ -66,13 +66,13 @@ describe('get-video-duration', () => {
       const duration = await getDuration(inputFileReadStream)
       expect(duration).toBeCloseTo(
         expectedVideoDuration,
-        expectedVideoDurationThreshold
+        expectedVideoDurationThreshold,
       )
     })
 
     it('Should throw an error if not a video stream', async () => {
       const inputFileReadStream = fs.createReadStream(
-        resolvePath(__dirname, __filename)
+        resolvePath(__dirname, __filename),
       )
       const durationPromise = getDuration(inputFileReadStream)
       await expect(durationPromise).rejects.toThrowError()
@@ -85,7 +85,7 @@ describe('get-video-duration', () => {
       const duration = await getDuration(temporalFilePath)
       expect(duration).toBeCloseTo(
         expectedVideoDuration,
-        expectedVideoDurationThreshold
+        expectedVideoDurationThreshold,
       )
     })
 
@@ -96,7 +96,7 @@ describe('get-video-duration', () => {
       const duration = await getDuration(temporalFilePath)
       expect(duration).toBeCloseTo(
         expectedVideoDuration,
-        expectedVideoDurationThreshold
+        expectedVideoDurationThreshold,
       )
     })
 
@@ -111,7 +111,7 @@ describe('get-video-duration', () => {
       const duration = await getDuration(testVideoURL)
       expect(duration).toBeCloseTo(
         expectedVideoDuration,
-        expectedVideoDurationThreshold
+        expectedVideoDurationThreshold,
       )
     })
 
