@@ -28,12 +28,8 @@ jobs:
         run: yarn --frozen-lockfile
       - name: Run tests
         run: yarn test
-      - name: Upload coverage
-        uses: caffco/code-climate-github-action@v0.0.1-alpha.5
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
         with:
-          repository_root_path: ${{github.workspace}}
-          collect_coverage: 'true'
-          coverage_file_patterns: |
-            coverage/lcov.info:lcov
+          file: ./coverage/lcov.info
+          token: ${{ secrets.CODECOV_TOKEN }}
