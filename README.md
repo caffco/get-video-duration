@@ -3,7 +3,7 @@
 [![NPM version][npm-image]][npm-url]
 ![Build Status](https://github.com/caffco/get-video-duration/workflows/test/badge.svg)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d66b9477ad4f7a14b5c9/maintainability)](https://codeclimate.com/github/caffco/get-video-duration/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/d66b9477ad4f7a14b5c9/test_coverage)](https://codeclimate.com/github/caffco/get-video-duration/test_coverage)
+[![Test Coverage](https://codecov.io/gh/caffco/get-video-duration/graph/badge.svg?token=KJKfI5gVoC)](https://codecov.io/gh/caffco/get-video-duration)
 [![License][license-image]][license-url]
 [![NPM bundle size (minified)][bundle-size-image]][npm-url]
 [![Downloads][downloads-image]][downloads-url]
