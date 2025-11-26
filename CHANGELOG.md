@@ -1,3 +1,13 @@
+# 5.0.0
+
+BREAKING:
+
+- Increased minimum Node required version to Node 20.
+
+Changed:
+
+- Upgraded all dependencies to the latest version available.
+
 # 4.1.0
 
 Changed:
