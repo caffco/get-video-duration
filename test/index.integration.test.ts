@@ -32,13 +32,23 @@ const downloadURLToPath = (
 ): Promise<string> => {
 	return new Promise((resolve, reject) => {
 		getHTTP(urlToDownload, (res) => {
-			res.pipe(createWriteStream(pathToBeWritten));
-			res.on("end", () => {
+			const writeStream = createWriteStream(pathToBeWritten);
+			// Resolve on the write stream's "finish" event (all bytes flushed and
+			// closed on disk), not on the response's "end" event (bytes received
+			// from the network but possibly still buffered), so ffprobe never reads
+			// a partially written file.
+			writeStream.on("finish", () => {
 				resolve(pathToBeWritten);
+			});
+			writeStream.on("error", (err) => {
+				reject(err);
 			});
 			res.on("error", (err) => {
 				reject(err);
 			});
+			res.pipe(writeStream);
+		}).on("error", (err) => {
+			reject(err);
 		});
 	});
 };
