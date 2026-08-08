@@ -1,18 +1,17 @@
-import { createReadStream } from "node:fs";
-import { copyFile, readFile } from "node:fs/promises";
-import { createServer, type Server } from "node:http";
-import type { AddressInfo } from "node:net";
+import { createReadStream, createWriteStream } from "node:fs";
+import { get as getHTTP } from "node:https";
 import { resolve as resolvePath } from "node:path";
 import { file as tmpFile } from "tmp";
-import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { describe, expect, it } from "vitest";
 
-import getDuration, { getVideoDurationInSeconds } from "../src";
-
-// A tiny video fixture is bundled with the tests so the suite does not depend
-// on any external host staying online (previous external URLs kept going away).
-const testVideoPath = resolvePath(__dirname, "fixtures", "video.mp4");
+const testVideoURL =
+	"https://raw.githubusercontent.com/caffco/get-video-duration/4904d16a9c8d52dab95fcad2e97c208d04ecae0d/test/fixtures/video.mp4";
+const testTextURL =
+	"https://github.com/caffco/get-video-duration/blob/master/LICENSE";
 const expectedVideoDuration = 5;
 const expectedVideoDurationThreshold = 1;
+
+import getDuration, { getVideoDurationInSeconds } from "../src";
 
 const getNewTemporalFilePath = (
 	options?: TemporalFileOptions,
@@ -27,11 +26,39 @@ const getNewTemporalFilePath = (
 	});
 };
 
-const copyFixtureToTemporalFile = async (
+const downloadURLToPath = (
+	urlToDownload: string,
+	pathToBeWritten: string,
+): Promise<string> => {
+	return new Promise((resolve, reject) => {
+		getHTTP(urlToDownload, (res) => {
+			const writeStream = createWriteStream(pathToBeWritten);
+			// Resolve on the write stream's "finish" event (all bytes flushed and
+			// closed on disk), not on the response's "end" event (bytes received
+			// from the network but possibly still buffered), so ffprobe never reads
+			// a partially written file.
+			writeStream.on("finish", () => {
+				resolve(pathToBeWritten);
+			});
+			writeStream.on("error", (err) => {
+				reject(err);
+			});
+			res.on("error", (err) => {
+				reject(err);
+			});
+			res.pipe(writeStream);
+		}).on("error", (err) => {
+			reject(err);
+		});
+	});
+};
+
+const downloadFileToTemporalFile = async (
+	urlToDownload: string,
 	options?: TemporalFileOptions,
 ): Promise<string> => {
 	const temporalFilePath = await getNewTemporalFilePath(options);
-	await copyFile(testVideoPath, temporalFilePath);
+	await downloadURLToPath(urlToDownload, temporalFilePath);
 	return temporalFilePath;
 };
 
@@ -42,13 +69,14 @@ describe("get-video-duration", () => {
 
 	describe.concurrent("When using a readable stream", () => {
 		it.concurrent("Should return proper duration", async () => {
-			const inputFileReadStream = createReadStream(testVideoPath);
+			const temporalFilePath = await downloadFileToTemporalFile(testVideoURL);
+			const inputFileReadStream = createReadStream(temporalFilePath);
 			const duration = await getDuration(inputFileReadStream);
 			expect(duration).toBeCloseTo(
 				expectedVideoDuration,
 				expectedVideoDurationThreshold,
 			);
-		});
+		}, 60_000);
 
 		it("Should throw an error if not a video stream", async () => {
 			const inputFileReadStream = createReadStream(
@@ -61,15 +89,16 @@ describe("get-video-duration", () => {
 
 	describe.concurrent("When using a file path", () => {
 		it.concurrent("Should return proper duration", async () => {
-			const duration = await getDuration(testVideoPath);
+			const temporalFilePath = await downloadFileToTemporalFile(testVideoURL);
+			const duration = await getDuration(temporalFilePath);
 			expect(duration).toBeCloseTo(
 				expectedVideoDuration,
 				expectedVideoDurationThreshold,
 			);
-		});
+		}, 60_000);
 
 		it.concurrent("Should work with spaces in paths", async () => {
-			const temporalFilePath = await copyFixtureToTemporalFile({
+			const temporalFilePath = await downloadFileToTemporalFile(testVideoURL, {
 				includingSpaces: true,
 			});
 			const duration = await getDuration(temporalFilePath);
@@ -77,7 +106,7 @@ describe("get-video-duration", () => {
 				expectedVideoDuration,
 				expectedVideoDurationThreshold,
 			);
-		});
+		}, 60_000);
 
 		it("Should throw an error if not a video file", async () => {
 			const durationPromise = getDuration(resolvePath(__dirname, __filename));
@@ -85,48 +114,17 @@ describe("get-video-duration", () => {
 		});
 	});
 
-	describe("When using a URL", () => {
-		let server: Server;
-		let baseURL: string;
-
-		beforeAll(async () => {
-			const fixtureContents = await readFile(testVideoPath);
-
-			server = createServer((request, response) => {
-				if (request.url === "/not-a-video") {
-					response.writeHead(200, { "Content-Type": "text/plain" });
-					response.end("This is not a video file");
-					return;
-				}
-
-				response.writeHead(200, { "Content-Type": "video/mp4" });
-				response.end(fixtureContents);
-			});
-
-			await new Promise<void>((resolve) => {
-				server.listen(0, "127.0.0.1", resolve);
-			});
-
-			const { port } = server.address() as AddressInfo;
-			baseURL = `http://127.0.0.1:${port}`;
-		});
-
-		afterAll(async () => {
-			await new Promise<void>((resolve, reject) => {
-				server.close((err) => (err ? reject(err) : resolve()));
-			});
-		});
-
-		it("Should return proper duration", async () => {
-			const duration = await getDuration(`${baseURL}/video.mp4`);
+	describe.concurrent("When using a URL", () => {
+		it.concurrent("Should return proper duration", async () => {
+			const duration = await getDuration(testVideoURL);
 			expect(duration).toBeCloseTo(
 				expectedVideoDuration,
 				expectedVideoDurationThreshold,
 			);
-		});
+		}, 60_000);
 
 		it("Should throw an error if not a video URL", async () => {
-			const durationPromise = getDuration(`${baseURL}/not-a-video`);
+			const durationPromise = getDuration(testTextURL);
 			await expect(durationPromise).rejects.toThrow();
 		});
 	});
