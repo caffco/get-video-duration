@@ -5,11 +5,11 @@ import { file as tmpFile } from "tmp";
 import { describe, expect, it } from "vitest";
 
 const testVideoURL =
-	"https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4";
+	"https://raw.githubusercontent.com/caffco/get-video-duration/4904d16a9c8d52dab95fcad2e97c208d04ecae0d/test/fixtures/video.mp4";
 const testTextURL =
 	"https://github.com/caffco/get-video-duration/blob/master/LICENSE";
-const expectedVideoDuration = 596;
-const expectedVideoDurationThreshold = -1;
+const expectedVideoDuration = 5;
+const expectedVideoDurationThreshold = 1;
 
 import getDuration, { getVideoDurationInSeconds } from "../src";
 
