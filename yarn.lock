@@ -1061,8 +1061,8 @@ __metadata:
   linkType: hard
 
 "execa@npm:^10.0.0":
-  version: 10.0.0
-  resolution: "execa@npm:10.0.0"
+  version: 10.1.0
+  resolution: "execa@npm:10.1.0"
   dependencies:
     "@sindresorhus/merge-streams": "npm:^4.0.0"
     figures: "npm:^6.1.0"
@@ -1071,13 +1071,12 @@ __metadata:
     is-plain-obj: "npm:^4.1.0"
     is-stream: "npm:^4.0.1"
     npm-run-path: "npm:^6.0.0"
-    path-key: "npm:^4.0.0"
-    pretty-ms: "npm:^9.3.0"
+    pretty-ms: "npm:^9.3.1"
     signal-exit: "npm:^4.1.0"
     strip-final-newline: "npm:^4.0.0"
     which-command: "npm:^0.1.0"
-    yoctocolors: "npm:^2.1.2"
-  checksum: 10c0/975722f1005c84b9a35efc816e26d1bfee87ce42ab5f3328c2b9966cc180db31644e101b10005c2cde8525a1e4c834e8eba9bfb32432f39f79bf2e6c327221ea
+    yoctocolors: "npm:^2.2.0"
+  checksum: 10c0/15c7ad5d4a7a17c3b722d8b6566661ee0af7ac5bea6cc9ded9177b50473c536b9eac534087d1125689056fa2cac378f472787496698c4f37c9fb3823a7f9c576
   languageName: node
   linkType: hard
 
@@ -2165,12 +2164,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-ms@npm:^9.3.0":
-  version: 9.3.0
-  resolution: "pretty-ms@npm:9.3.0"
+"pretty-ms@npm:^9.3.1":
+  version: 9.3.1
+  resolution: "pretty-ms@npm:9.3.1"
   dependencies:
     parse-ms: "npm:^4.0.0"
-  checksum: 10c0/555ea39a1de48a30601938aedb76d682871d33b6dee015281c37108921514b11e1792928b1648c2e5589acc73c8ef0fb5e585fb4c718e340a28b86799e90fb34
+  checksum: 10c0/f034e6197922da40d6f0e73c835baa0f87d89f660966deb651305ee0567e20d5258b9c1782de098069b479036653bd1ad4ee1d6d816d1fde0e47c62d0ce5763d
   languageName: node
   linkType: hard
 
@@ -3105,9 +3104,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yoctocolors@npm:^2.1.2":
-  version: 2.1.2
-  resolution: "yoctocolors@npm:2.1.2"
-  checksum: 10c0/b220f30f53ebc2167330c3adc86a3c7f158bcba0236f6c67e25644c3188e2571a6014ffc1321943bb619460259d3d27eb4c9cc58c2d884c1b195805883ec7066
+"yoctocolors@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "yoctocolors@npm:2.2.0"
+  checksum: 10c0/ca179aa83401aa0711f268fda38145a44c828e612a5f5265439efb5796cd63c46ca6b786bae3b74c75440a48518c36b5b23cba7fbb76ea8af5a9f85f830a5754
   languageName: node
   linkType: hard
