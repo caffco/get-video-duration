@@ -1068,8 +1068,8 @@ __metadata:
   linkType: hard
 
 "execa@npm:^10.0.0":
-  version: 10.1.0
-  resolution: "execa@npm:10.1.0"
+  version: 10.1.1
+  resolution: "execa@npm:10.1.1"
   dependencies:
     "@sindresorhus/merge-streams": "npm:^4.0.0"
     figures: "npm:^6.1.0"
@@ -1083,7 +1083,7 @@ __metadata:
     strip-final-newline: "npm:^4.0.0"
     which-command: "npm:^0.1.0"
     yoctocolors: "npm:^2.2.0"
-  checksum: 10c0/15c7ad5d4a7a17c3b722d8b6566661ee0af7ac5bea6cc9ded9177b50473c536b9eac534087d1125689056fa2cac378f472787496698c4f37c9fb3823a7f9c576
+  checksum: 10c0/6f9efc13c0142a7136f02affa605383e464581dff35dc3386c4f480a06e04a4541232b48e0564fd7fc25a52aa65a2f1a57a0f4669188887a3d0d34ecb7a1eb5b
   languageName: node
   linkType: hard
 
@@ -2044,13 +2044,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"obug@npm:^2.1.4":
-  version: 2.1.4
-  resolution: "obug@npm:2.1.4"
-  checksum: 10c0/34a0ee97cd88573cfd97d384c2a79f07118ae5680d7e45d1de6e99c74eddefe145e8ca27a2db02195a1ee5fded5aa22b924869c842728c201b9f109a27d0ef19
-  languageName: node
-  linkType: hard
-
 "obug@npm:^3.0.0":
   version: 3.0.0
   resolution: "obug@npm:3.0.0"
@@ -2564,13 +2557,6 @@ __metadata:
   version: 3.0.22
   resolution: "spdx-license-ids@npm:3.0.22"
   checksum: 10c0/4a85e44c2ccfc06eebe63239193f526508ebec1abc7cf7bca8ee43923755636234395447c2c87f40fb672cf580a9c8e684513a676bfb2da3d38a4983684bbb38
-  languageName: node
-  linkType: hard
-
-"std-env@npm:^4.2.0":
-  version: 4.2.0
-  resolution: "std-env@npm:4.2.0"
-  checksum: 10c0/40ac525ce7b7c556abc332a7376f14356eeb1a7f17f6ff9a003eb9f52326ff1f3745d3e1b43452675b1ec6fcc319f1b1d6f3b0d386cf3f91058479ad883cff69
   languageName: node
   linkType: hard
 
