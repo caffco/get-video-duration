@@ -1088,8 +1088,8 @@ __metadata:
   linkType: hard
 
 "execa@npm:^10.0.0":
-  version: 10.2.0
-  resolution: "execa@npm:10.2.0"
+  version: 10.2.1
+  resolution: "execa@npm:10.2.1"
   dependencies:
     "@sindresorhus/merge-streams": "npm:^4.0.0"
     figures: "npm:^6.1.0"
@@ -1103,7 +1103,7 @@ __metadata:
     strip-final-newline: "npm:^4.0.0"
     which-command: "npm:^0.1.0"
     yoctocolors: "npm:^2.2.0"
-  checksum: 10c0/27db87c2a77c08bd8c597fbb82f73c5024fce33ba19cf18e62ad7934a445782e03157dd170584a0c3aa988222343991791f4f9ef76f4d80d165376d360fe55d3
+  checksum: 10c0/56024ace832edaa08562e73b9746f57751b6d9f458be5640b86b53e10a7cc2cc878a79e92ff22791ae04a3d61421e73096c86595559231a2225f40fcdcb9f5ea
   languageName: node
   linkType: hard
 
